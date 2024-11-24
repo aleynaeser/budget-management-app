@@ -1,0 +1,4 @@
+# .svgrrc
+icon: true
+expandProps: false
+typescript: true

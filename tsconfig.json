@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@components/*": ["./src/common/components/*"],
+      "@fonts/*": ["./src/assets/fonts/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@sass/*": ["./src/common/sass/*"],
+      "@common/*": ["./src/common/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@middleware/*": ["./src/common/middleware/*"],
+      "@i18n/*": ["./src/i18n/*"],
+      "@/*": ["./src/*"],
+      "@root/*": ["./*"],
+      "@app/*": ["./src/app/[locale]/(app)/*"]
+    },
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "server.js"],
+  "exclude": ["node_modules"],
+  "strictNullChecks": true
+}

@@ -1,0 +1,17 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/.gitignore
+**/.package-lock.json
+
+**/out
+**/build
+**/dist
+
+.github
+infra
+.next
+
+**/*.log
+*.min.*

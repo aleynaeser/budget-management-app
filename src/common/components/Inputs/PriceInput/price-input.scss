@@ -1,0 +1,38 @@
+.price-input {
+  position: relative;
+
+  .currency-select {
+    position: absolute;
+    top: 0;
+    right: -4px;
+
+    .custom-select__control {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .custom-select__menu {
+      width: 40px;
+      margin-left: 4px;
+      text-align: center;
+    }
+  }
+
+  .form-input {
+    padding-right: var(--space-24);
+  }
+
+  .default-currency {
+    position: absolute;
+    top: 50%;
+    right: var(--space-6);
+    transform: translateY(-50%);
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--border-radius-6);
+    font-size: var(--font-size-12);
+    font-weight: 500;
+    color: var(--font-color-light);
+    background-color: var(--theme-color-8);
+  }
+}

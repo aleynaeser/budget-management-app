@@ -1,0 +1,12 @@
+.bm-title {
+  color: var(--theme-color-3);
+  font-size: var(--font-size-22);
+
+  &.sm {
+    font-size: var(--font-size-16);
+  }
+
+  span {
+    font-weight: 200;
+  }
+}

@@ -1,0 +1,73 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-color: var(--theme-color-2);
+  color: var(--font-color);
+  font-family: var(--font-nunito);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-13);
+}
+
+#not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-12);
+}
+
+.bm-svg {
+  vertical-align: initial;
+  color: var(--theme-color-3);
+}
+
+.form-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.form-group {
+  display: flex;
+  gap: var(--space-24);
+  width: 100%;
+  align-items: flex-start;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  margin-top: var(--space-24);
+}
+
+.loading-skeleton {
+  width: 100%;
+  height: var(--size-10);
+  background-image: linear-gradient(90deg, var(--theme-color-2) 0px, var(--theme-color-9) 40px, var(--theme-color-2) 80px);
+  background-size: 250px;
+  border-radius: var(--border-radius-low);
+  animation: loading-skeleton 1s infinite ease-out;
+
+  @keyframes loading-skeleton {
+    0% {
+      background-position: -100px;
+    }
+    50% {
+      background-position: 100px;
+    }
+    100% {
+      background-position: 140px;
+    }
+  }
+}

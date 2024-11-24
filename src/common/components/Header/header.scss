@@ -1,0 +1,107 @@
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-20);
+  padding: var(--space-14) var(--space-24);
+
+  #menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-14);
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--size-40);
+      height: var(--size-40);
+      border-radius: 50%;
+      background-color: var(--theme-color-2);
+    }
+
+    .menu-nav-list {
+      display: flex;
+      align-items: center;
+      gap: var(--space-14);
+      width: fit-content;
+      min-height: var(--size-40);
+      padding: var(--space-6) var(--space-8);
+      border-radius: var(--border-radius-high);
+      background-color: var(--theme-color-2);
+
+      .menu-nav-item {
+        position: relative;
+        z-index: 1;
+        min-width: 80px;
+        text-align: center;
+        white-space: nowrap;
+        user-select: none;
+        cursor: pointer;
+        padding: var(--space-6) var(--space-14);
+        border-radius: var(--border-radius-high);
+        color: var(--font-color-secondary);
+        transition: color var(--transition-duration-fast) ease-in-out;
+
+        &.active {
+          color: var(--theme-color-1);
+        }
+
+        .indicator {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          border-radius: var(--border-radius-medium);
+          background-color: var(--theme-color-3);
+        }
+      }
+    }
+  }
+
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-14);
+
+    .theme-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--size-40);
+      height: var(--size-40);
+      border-radius: 50%;
+      background-color: var(--theme-color-2);
+      border: 1px solid transparent;
+
+      &:hover {
+        border-color: var(--theme-color-9);
+      }
+
+      .theme-icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .user-profile {
+      position: relative;
+      width: var(--size-40);
+      height: var(--size-40);
+      border-radius: 50%;
+      border: 1px solid var(--theme-color-9);
+      background-color: var(--theme-color-9);
+    }
+  }
+
+  @include breakpoint(tablet) {
+    overflow: scroll;
+    @include hide-scrollbar();
+  }
+}
