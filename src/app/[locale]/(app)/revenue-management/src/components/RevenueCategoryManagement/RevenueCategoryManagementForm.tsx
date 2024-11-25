@@ -56,9 +56,9 @@ export default function RevenueCategoryManagementForm() {
       validationSchema={revenueCategorySchema}
       enableReinitialize
     >
-      {({ resetForm, handleSubmit }) => {
+      {({ handleReset, handleSubmit }) => {
         return (
-          <Form className='revenue-category-management-form'>
+          <Form id='revenue-category-management-form'>
             <div className='form-groups'>
               <div className='form-group'>
                 <FormItem name='colorHexCode' label='Color' type='color' />
@@ -72,7 +72,7 @@ export default function RevenueCategoryManagementForm() {
                 content='Reset'
                 onClick={() => {
                   setRevenueCategory(undefined);
-                  resetForm();
+                  handleReset();
                 }}
               />
 

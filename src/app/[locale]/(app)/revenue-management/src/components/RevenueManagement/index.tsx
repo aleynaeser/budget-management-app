@@ -1,14 +1,24 @@
-import { BMTitle, LayoutCard } from '@components/Layout';
+'use client';
+
+import { useRef } from 'react';
+import { BMTitle, BMToolbar, LayoutCard } from '@components/Layout';
 import RevenueManagementForm from './RevenueManagementForm';
 import RevenueManagementTable from './RevenueManagementTable';
 
-export default async function RevenueManagement() {
+export default function RevenueManagement() {
+  const printRevenueTableRef = useRef<HTMLDivElement>(null);
+
   return (
     <LayoutCard id='revenue-management' className='col-span-7 sm:col-span-12' containerTag='section'>
-      <BMTitle title='Revenue Form' />
-      <RevenueManagementForm />
-      <BMTitle title='Revenue Table' />
-      <RevenueManagementTable />
+      <div className='revenue-management-form-content'>
+        <BMTitle title='Revenue Form' />
+        <RevenueManagementForm />
+      </div>
+
+      <div className='revenue-management-table-content'>
+        <BMToolbar title='Revenue Table' printComponentRef={printRevenueTableRef} />
+        <RevenueManagementTable tableRef={printRevenueTableRef} />
+      </div>
     </LayoutCard>
   );
 }

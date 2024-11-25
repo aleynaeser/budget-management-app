@@ -19,13 +19,13 @@ export const LayoutInitializationProvider = ({ children }: { children: ReactNode
   const mounted = useRef(false);
 
   const [config, setConfig] = useState<ILayoutInitializationConfig>(() => {
-    if (typeof window === 'undefined') return { theme: THEME_CODES.LIGHT, narrowMenu: false };
+    if (typeof window === 'undefined') return { theme: THEME_CODES.LIGHT };
 
     try {
       const stored = localStorage.getItem(LOCAL_STORAGE_KEYS.INITIALIZATION_CONFIG);
-      return stored ? JSON.parse(stored) : { theme: THEME_CODES.LIGHT, narrowMenu: false };
+      return stored ? JSON.parse(stored) : { theme: THEME_CODES.LIGHT };
     } catch {
-      return { theme: THEME_CODES.LIGHT, narrowMenu: false };
+      return { theme: THEME_CODES.LIGHT };
     }
   });
 

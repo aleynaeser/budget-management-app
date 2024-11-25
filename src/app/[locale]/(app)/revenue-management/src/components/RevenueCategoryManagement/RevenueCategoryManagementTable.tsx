@@ -9,7 +9,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRevenueCategoryManagementContext } from '../../context';
 import BMTable from '@components/BMTable';
 
-export default function RevenueCategoryManagementTable() {
+export default function RevenueCategoryManagementTable({ tableRef }: { tableRef: React.RefObject<HTMLDivElement> }) {
   const queryClient = useQueryClient();
   const { setLocalStorageData } = useManageStorage<IRevenueCategory[]>();
   const { revenueCategories, isRevenueCategoriesLoading, setRevenueCategory } = useRevenueCategoryManagementContext();
@@ -50,5 +50,12 @@ export default function RevenueCategoryManagementTable() {
     },
   ];
 
-  return <BMTable<IRevenueCategory> data={revenueCategories} columns={columns} isLoading={isRevenueCategoriesLoading} />;
+  return (
+    <BMTable<IRevenueCategory>
+      data={revenueCategories}
+      columns={columns}
+      isLoading={isRevenueCategoriesLoading}
+      tableRef={tableRef}
+    />
+  );
 }

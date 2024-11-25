@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import './action-button.scss';
 
-type TActionButtonVariant = 'delete' | 'edit';
+type TActionButtonVariant = 'delete' | 'edit' | 'navigate';
 
 interface IActionButton extends HTMLMotionProps<'button'> {
   className?: string;
@@ -17,7 +17,7 @@ interface IActionButton extends HTMLMotionProps<'button'> {
 export default function ActionButton({ className, icon, variant = 'delete', ...buttonProps }: IActionButton) {
   const buttonType = buttonProps.type || 'button';
 
-  const iconMap: Record<TActionButtonVariant, TBMIconType> = { delete: 'bm-delete', edit: 'bm-edit' };
+  const iconMap: Record<TActionButtonVariant, TBMIconType> = { delete: 'bm-delete', edit: 'bm-edit', navigate: 'cds-navigate' };
   const iconType = icon ?? iconMap[variant];
 
   return (

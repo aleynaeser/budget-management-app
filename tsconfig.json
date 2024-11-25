@@ -20,6 +20,9 @@
       }
     ],
     "paths": {
+      "@dashboard/*": ["./src/app/[locale]/(app)/dashboard/*"],
+      "@rm/*": ["./src/app/[locale]/(app)/revenue-management/*"],
+      "@em/*": ["./src/app/[locale]/(app)/expense-management/*"],
       "@components/*": ["./src/common/components/*"],
       "@fonts/*": ["./src/assets/fonts/*"],
       "@icons/*": ["./src/assets/icons/*"],

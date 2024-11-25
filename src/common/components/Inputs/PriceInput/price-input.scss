@@ -5,6 +5,7 @@
     position: absolute;
     top: 0;
     right: -4px;
+    z-index: 99;
 
     .custom-select__control {
       background-color: transparent !important;

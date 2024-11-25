@@ -9,7 +9,7 @@ import { useRevenueManagementContext } from '../../context';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import BMTable from '@components/BMTable';
 
-export default function RevenueManagementTable() {
+export default function RevenueManagementTable({ tableRef }: { tableRef: React.RefObject<HTMLDivElement> }) {
   const queryClient = useQueryClient();
   const { setLocalStorageData } = useManageStorage<IRevenue[]>();
   const { revenues, isRevenuesLoading, setRevenue } = useRevenueManagementContext();
@@ -27,12 +27,25 @@ export default function RevenueManagementTable() {
 
   const columns: ColumnDef<IRevenue, string>[] = [
     {
-      accessorKey: 'date',
-      header: 'Date',
+      accessorKey: 'category.name',
+      header: 'Category',
+      cell: ({ row }) => {
+        const { name, colorHexCode } = row.original.category;
+        return (
+          <div className='category-cell' style={{ color: colorHexCode }}>
+            {name}
+          </div>
+        );
+      },
     },
     {
       accessorKey: 'name',
-      header: 'Revenue Name',
+      header: 'Name',
+    },
+    {
+      accessorKey: 'price',
+      header: 'Price',
+      meta: { formatter: 'price' },
     },
     {
       accessorKey: 'description',
@@ -40,13 +53,9 @@ export default function RevenueManagementTable() {
       cell: (info) => <div className='description-cell'>{info.getValue()}</div>,
     },
     {
-      accessorKey: 'category.name',
-      header: 'Category',
-    },
-    {
-      accessorKey: 'price',
-      header: 'Price',
-      meta: { formatter: 'price' },
+      accessorKey: 'date',
+      header: 'Date',
+      meta: { formatter: 'date' },
     },
     {
       header: 'Actions',
@@ -63,5 +72,5 @@ export default function RevenueManagementTable() {
     },
   ];
 
-  return <BMTable<IRevenue> data={revenues} columns={columns} isLoading={isRevenuesLoading} />;
+  return <BMTable<IRevenue> data={revenues} columns={columns} isLoading={isRevenuesLoading} tableRef={tableRef} />;
 }

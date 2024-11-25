@@ -29,4 +29,16 @@
       color: var(--theme-color-5);
     }
   }
+
+  &.navigate {
+    width: var(--size-50);
+    height: var(--size-50);
+    background-color: var(--theme-color-2);
+
+    svg {
+      width: var(--size-30);
+      height: var(--size-30);
+      color: var(--theme-color-3);
+    }
+  }
 }

@@ -5,6 +5,7 @@ export interface IBMTable<TData extends RowData> extends Omit<TableOptions<TData
   className?: string;
   emptyContent?: string;
   isLoading?: boolean;
+  tableRef?: React.RefObject<HTMLDivElement>;
 }
 
 declare module '@tanstack/react-table' {

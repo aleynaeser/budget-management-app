@@ -18,6 +18,7 @@ export default function BMTable<TData>({
   emptyContent,
   columns: columnItems,
   isLoading,
+  tableRef,
   ...tableProps
 }: IBMTable<TData>) {
   const columns = useTableColumns(columnItems);
@@ -39,6 +40,7 @@ export default function BMTable<TData>({
   return (
     <div
       id={id}
+      ref={tableRef}
       className={classNames(`bm-table-container`, {
         [className!]: className,
         empty: data.length <= 0,

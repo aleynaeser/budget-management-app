@@ -7,6 +7,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { LayoutInitializationProvider, ReactQueryProvider, ReduxProvider } from '@common/providers';
 import appConfig from '@root/app.config.json';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
 import '../../common/sass/style.scss';
 
 interface ILocaleLayout {

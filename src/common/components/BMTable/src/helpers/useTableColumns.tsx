@@ -5,9 +5,16 @@ import { IBMTable } from '../interface/table.interface';
 
 export default function useTableColumns<TData>(columnItems: IBMTable<TData>['columns']) {
   const format = useFormatter();
-  
+
   const formatCell = useCallback((formatter: string, info: CellContext<TData, any>) => {
     switch (formatter) {
+      case 'date':
+        const date = info.getValue();
+        return new Date(date).toLocaleDateString('tr-TR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
       case 'price':
         const price = info.getValue();
         const formettedPrice = format.number(price.amount, {

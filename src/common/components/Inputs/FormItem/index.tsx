@@ -34,6 +34,7 @@ export default function FormItem({
   const labelContent = isLabelObject ? { label: label.text, htmlFor: label.htmlFor } : { label: label, htmlFor: name };
 
   const hasError = useMemo(() => getIn(errors, name) && getIn(touched, name), [errors, touched, name]);
+
   const shakeVariants = (condition: boolean | string | undefined) => ({
     animate: condition && { x: [0, -4, 4, -4, 4, 0] },
     transition: { damping: 10, stiffness: 100, mass: 0.5, duration: 0.6 },

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { getIn, useFormikContext } from 'formik';
 import { StateManagerProps } from 'react-select/dist/declarations/src/stateManager';
 import classNames from 'classnames';
@@ -14,12 +15,16 @@ interface ISelectInput<T> extends Omit<StateManagerProps<TWithId<T>>, 'options'>
 }
 
 export default function SelectInput<T>({ name, options, className, ...selectProps }: ISelectInput<T>) {
-  const { values, errors, touched, setFieldValue, setFieldTouched } = useFormikContext<{
+  const { values, errors, touched, isValidating, isSubmitting, setFieldValue, setFieldTouched } = useFormikContext<{
     [key: string]: TWithId<T>;
   }>();
 
   const value = selectProps.defaultValue ?? getIn(values, name);
-  const hasError = getIn(errors, `${name}.id`) && getIn(touched, `${name}.id`);
+  const hasError = getIn(errors, `${name}.name`) && getIn(touched, `${name}.name`);
+
+  useEffect(() => {
+    isSubmitting && isValidating && setFieldTouched(`${name}.name`, true);
+  }, [isValidating, isSubmitting]);
 
   return (
     <Select
@@ -35,7 +40,7 @@ export default function SelectInput<T>({ name, options, className, ...selectProp
       onChange={(selected) => setFieldValue(name, selected)}
       onBlur={(event) => {
         setFieldTouched(name, true);
-        setFieldTouched(`${name}.id`, true);
+        setFieldTouched(`${name}.name`, true);
         selectProps.onBlur?.(event);
       }}
       {...selectProps}

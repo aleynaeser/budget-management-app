@@ -115,6 +115,10 @@ export default function PriceInput({
             className='currency-select'
             getOptionLabel={(option) => option.sign}
             defaultValue={currencyOptions.find((option) => option.id === currencyValue)}
+            onChange={(option) => {
+              const selectedOption = option as typeof currencyOptions[number];
+              setFieldValue(currencyName, selectedOption.code);
+            }}
           />
         ))}
     </div>

@@ -60,15 +60,14 @@ export default function RevenueManagementForm() {
       validationSchema={revenueSchema}
       enableReinitialize
     >
-      {({ errors, resetForm, handleSubmit }) => {
-        console.log(errors, 'errors');
+      {({ resetForm, handleSubmit }) => {
         return (
-          <Form className='revenue-management-form'>
+          <Form id='revenue-management-form'>
             <div className='form-groups'>
               <div className='form-group'>
                 <FormItem name='name' label='Revenue Name' required />
 
-                <FormItem name='category.id' label='Revenue Category' required>
+                <FormItem name='category.name' label='Revenue Category' required>
                   <SelectInput<IRevenueCategory> name='category' options={revenueCategories ?? []} />
                 </FormItem>
               </div>
