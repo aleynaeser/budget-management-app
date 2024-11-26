@@ -1,0 +1,86 @@
+#pie-chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .pie-chart {
+    .recharts-pie-sector {
+      outline: none;
+
+      .pie-value {
+        font-size: 12px;
+        line-height: 15px;
+        fill: var(--theme-color-3);
+      }
+
+      .pie-label {
+        font-size: var(--font-size-14);
+      }
+
+      .pie-value {
+        height: 30px;
+        font-size: var(--font-size-14);
+        color: var(--font-color-secondary);
+      }
+    }
+
+    .pie-cell {
+      outline: none;
+    }
+  }
+
+  .pie-chart-info {
+    position: absolute;
+    top: 0;
+  }
+
+  .pie-chart-legends {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: var(--space-10);
+
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      padding: var(--space-6) var(--space-10);
+      border-radius: var(--border-radius-medium);
+      background-color: transparent;
+      cursor: pointer;
+      transition:
+        opacity var(--transition-duration-low),
+        background-color var(--transition-duration-low) ease-in-out;
+
+      &.active {
+        border-radius: var(--border-radius-low);
+        background-color: var(--theme-color-9);
+      }
+
+      &:not(.active):hover {
+        opacity: 0.7;
+      }
+
+      .color {
+        position: relative;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          opacity: 0.3;
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}

@@ -17,7 +17,7 @@ interface IActionButton extends HTMLMotionProps<'button'> {
 export default function ActionButton({ className, icon, variant = 'delete', ...buttonProps }: IActionButton) {
   const buttonType = buttonProps.type || 'button';
 
-  const iconMap: Record<TActionButtonVariant, TBMIconType> = { delete: 'bm-delete', edit: 'bm-edit', navigate: 'cds-navigate' };
+  const iconMap: Record<TActionButtonVariant, TBMIconType> = { delete: 'bm-delete', edit: 'bm-edit', navigate: 'bm-navigate' };
   const iconType = icon ?? iconMap[variant];
 
   return (

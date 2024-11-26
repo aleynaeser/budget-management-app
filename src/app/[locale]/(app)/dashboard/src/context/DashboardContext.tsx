@@ -7,11 +7,11 @@ import { useManageStorage } from '@common/hooks';
 import { createContext, useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { LOCAL_STORAGE_KEYS } from '@common/enums';
-import { IDashboardSummary, ISliderItem } from '../interfaces';
+import { IBudgetSummary, ISliderItem } from '../interfaces';
 
 interface IDashboardContext {
   sliderData: ISliderItem[];
-  summary: IDashboardSummary;
+  budgetSummary: IBudgetSummary;
 }
 
 const dashboardContext = createContext<IDashboardContext | undefined>(undefined);
@@ -49,18 +49,20 @@ export function DashboardContextProvider({ children }: { children: React.ReactNo
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .slice(0, 5);
 
-  const summary: IDashboardSummary = {
+  const budgetSummary: IBudgetSummary = {
     revenue: {
-      title: 'Revenue',
+      label: 'Revenue',
+      color: '#11c26d',
       path: '/revenue-management',
       totalLength: revenues?.length ?? 0,
-      total: revenues?.reduce((acc: number, curr: IRevenue) => acc + curr.price.amount, 0) ?? 0,
+      value: Number(revenues?.reduce((acc: number, curr: IRevenue) => acc + curr.price.amount, 0) ?? 0),
     },
     expense: {
-      title: 'Expense',
+      label: 'Expense',
+      color: '#ad2435',
       path: '/expense-management',
       totalLength: expenses?.length ?? 0,
-      total: expenses?.reduce((acc: number, curr: IExpense) => acc + curr.price.amount, 0) ?? 0,
+      value: Number(expenses?.reduce((acc: number, curr: IExpense) => acc + curr.price.amount, 0) ?? 0),
     },
   };
 
@@ -68,7 +70,7 @@ export function DashboardContextProvider({ children }: { children: React.ReactNo
     <dashboardContext.Provider
       value={{
         sliderData,
-        summary,
+        budgetSummary,
       }}
     >
       {children}

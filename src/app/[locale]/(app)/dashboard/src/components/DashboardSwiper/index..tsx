@@ -7,7 +7,7 @@ import { Pagination, Autoplay, Navigation } from 'swiper';
 import DashboardSwiperItem from './DashboardSwiperItem';
 
 export default function DashboardSwiper() {
-  const { summary } = useDashboardContext();
+  const { budgetSummary } = useDashboardContext();
 
   return (
     <LayoutCard id='dashboard-swiper' className='col-span-5 sm:col-span-12' containerTag='section'>
@@ -25,11 +25,11 @@ export default function DashboardSwiper() {
         }}
       >
         <SwiperSlide>
-          <DashboardSwiperItem item={summary.revenue} />
+          <DashboardSwiperItem item={budgetSummary.revenue} />
         </SwiperSlide>
 
         <SwiperSlide>
-          <DashboardSwiperItem item={summary.expense} />
+          <DashboardSwiperItem item={budgetSummary.expense} />
         </SwiperSlide>
       </Swiper>
     </LayoutCard>

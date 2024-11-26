@@ -32,7 +32,7 @@
     "react-redux": "^8.0.5",
     "react-select": "^5.8.2",
     "react-to-print": "^2.15.1",
-    "recharts": "^2.9.3",
+    "recharts": "^2.13.3",
     "swiper": "^9.2.0",
     "uuid": "^9.0.1",
     "yup": "^1.0.2"

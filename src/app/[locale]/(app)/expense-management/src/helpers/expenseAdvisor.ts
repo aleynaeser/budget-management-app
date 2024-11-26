@@ -50,7 +50,7 @@ export const expenseAdvisor = (values: IExpense, dispatch: Dispatch): boolean =>
         id: uuidv4(),
         type: NOTIFICATION_TYPE.WARNING,
         message: 'Budget Reminder',
-        description: "You're approaching half of your budget for this month. Continue to plan your expenses carefully.",
+        description: 'This expense is relatively low compared to your budget. Good job on being cost-conscious!',
       }),
     );
   }

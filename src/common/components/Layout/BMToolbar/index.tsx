@@ -20,7 +20,7 @@ export default function BMToolbar({ title, printComponentRef }: BMToolbar) {
         <PrintContextConsumer>
           {({ handlePrint }) => (
             <button type='button' className='toolbar-print-button' onClick={handlePrint}>
-              <BMIcon icon='cds-arrow-down' size='14' />
+              <BMIcon icon='bm-arrow-down' size='14' />
               Print
             </button>
           )}

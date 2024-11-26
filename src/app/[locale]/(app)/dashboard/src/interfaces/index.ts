@@ -1,3 +1,4 @@
-import { ISliderItem, IDashboardSummary, IDashboardSummaryItem } from './dashboard-interface';
+import { ISliderItem, IBudgetSummary, IBudgetSummaryItem } from './dashboard-interface';
 
-export type { ISliderItem, IDashboardSummary, IDashboardSummaryItem };
+export type { ISliderItem, IBudgetSummary, IBudgetSummaryItem };
+

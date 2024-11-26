@@ -24,6 +24,6 @@ export const bmIconSet = {
   'bm-chevron-left': LuChevronLeft,
   'bm-delete': LuTrash2,
   'bm-edit': TbEdit,
-  'cds-arrow-down': LuArrowDownToLine,
-  'cds-navigate': TbArrowUpRight,
+  'bm-arrow-down': LuArrowDownToLine,
+  'bm-navigate': TbArrowUpRight,
 };

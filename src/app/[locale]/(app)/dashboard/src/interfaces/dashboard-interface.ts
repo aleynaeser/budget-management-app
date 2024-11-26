@@ -7,14 +7,15 @@ export interface ISliderItem {
   type: 'expense' | 'revenue';
 }
 
-export interface IDashboardSummary {
-  revenue: IDashboardSummaryItem;
-  expense: IDashboardSummaryItem;
+export interface IBudgetSummary {
+  revenue: IBudgetSummaryItem;
+  expense: IBudgetSummaryItem;
 }
 
-export interface IDashboardSummaryItem {
-  title: string;
+export interface IBudgetSummaryItem {
+  label: string;
   totalLength: number;
-  total: number;
+  value: number;
   path: string;
+  color: string;
 }
